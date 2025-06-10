@@ -17,39 +17,55 @@ class Ui_MainWindow(object):
         MainWindow.resize(998, 667)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
+        # ✅ Thêm background là logo HUTECH
+        self.background = QtWidgets.QLabel(self.centralwidget)
+        self.background.setGeometry(QtCore.QRect(0, 0, 998, 667))
+        self.background.setPixmap(QtGui.QPixmap("hutech_logo.png"))
+        self.background.setScaledContents(True)
+        self.background.lower()  # Đặt dưới các widget khác
+
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(80, 360, 141, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
+
         self.txtKey = QtWidgets.QTextEdit(self.centralwidget)
         self.txtKey.setGeometry(QtCore.QRect(250, 220, 551, 41))
         self.txtKey.setObjectName("txtKey")
+
         self.txtPlaintext = QtWidgets.QTextEdit(self.centralwidget)
         self.txtPlaintext.setGeometry(QtCore.QRect(250, 110, 551, 87))
         self.txtPlaintext.setObjectName("txtPlaintext")
+
         self.txtCiphertext = QtWidgets.QTextEdit(self.centralwidget)
         self.txtCiphertext.setGeometry(QtCore.QRect(250, 330, 551, 171))
         self.txtCiphertext.setObjectName("txtCiphertext")
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(80, 220, 111, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
+
         self.btnDecrypt = QtWidgets.QPushButton(self.centralwidget)
         self.btnDecrypt.setGeometry(QtCore.QRect(650, 540, 93, 41))
         self.btnDecrypt.setObjectName("btnDecrypt")
+
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(80, 110, 111, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label.setFont(font)
         self.label.setObjectName("label")
+
         self.btnEncrypt = QtWidgets.QPushButton(self.centralwidget)
         self.btnEncrypt.setGeometry(QtCore.QRect(270, 540, 93, 41))
         self.btnEncrypt.setObjectName("btnEncrypt")
+
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_4.setGeometry(QtCore.QRect(320, 30, 391, 41))
         font = QtGui.QFont()
@@ -58,21 +74,45 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 998, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+        # ✅ Giao diện nhẹ nhàng hơn (tùy chọn)
+        MainWindow.setStyleSheet("""
+            QLabel {
+                color: #000000;
+                font-weight: bold;
+            }
+            QTextEdit {
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 6px;
+                padding: 6px;
+            }
+            QPushButton {
+                background-color: #0078D7;
+                color: white;
+                border-radius: 6px;
+                padding: 6px 12px;
+            }
+            QPushButton:hover {
+                background-color: #005EA6;
+            }
+        """)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Playfair Cipher - HUTECH"))
         self.label_3.setText(_translate("MainWindow", "Cipher Text:"))
         self.label_2.setText(_translate("MainWindow", "Key:"))
         self.btnDecrypt.setText(_translate("MainWindow", "Decrypt"))
