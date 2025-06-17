@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành ATTT Nâng cao - Nguyễn Thái Hoàng</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            color: #0d47a1;
+        }
+
+        .student-info {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #004d40;
+        }
+
+        .menu a {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        .list-group-item {
+            border: none;
+            background-color: transparent;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container text-center mt-5">
+    <!-- Logo Section -->
+    <img src="/TEST/logo-hutech-1.png"
+                alt="LOGO HUTECH"
+                class="img-fluid"
+                style="max-width: 300px;">
+     <img src="/TEST/encoded_logo-hutech-2.jpg"
+                alt="HUTECH30NAM"
+                class="img-fluid"
+                style="max-width: 300px;">
+              
+                
+                
+    <!-- Title & Info -->
+    <div class="title">BÀI THỰC HÀNH KẾT THÚC MÔN HỌC: THBMTTNC</div>
+    <div class="student-info">NGUYỄN THÁI HOÀNG - 2280601053 GG !</div>
+
+    <!-- Cipher Menu -->
+    <ul class="list-group menu">
+        <li class="list-group-item"><a href="#" onclick="openForm('caesar')">🛡 Caesar Cipher</a></li>
+        <li class="list-group-item"><a href="#" onclick="openForm('playfair')">🔐 Playfair Cipher</a></li>
+        <li class="list-group-item"><a href="#" onclick="openForm('railfence')">📡 Railfence Cipher</a></li>
+        <li class="list-group-item"><a href="#" onclick="openForm('vigenere')">🧬 Vigenere Cipher</a></li>
+    </ul>
+</div>
+
+<!-- Script -->
+<script>
+    function openForm(type) {
+        fetch('/open-' + type)
+            .then(response => response.json())
+            .then(data => alert(data.status))
+            .catch(err => alert('Lỗi: ' + err));
+    }
+</script>
+
+</body>
+</html>
